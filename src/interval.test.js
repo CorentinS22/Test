@@ -15,3 +15,18 @@ describe('Overlaps', function () {
     });
 
 });
+
+describe('Includes', function () {
+    let intervalGenerale = new Interval(0,10);
+
+    test('Test interval includes true', () => {
+        let interval2 = new Interval(4,8);
+        expect(intervalGenerale.includes(interval2)).toBe(true)
+    });
+
+    test('Test interval includes false', () => {
+        let interval2 = new Interval(5,16);
+        expect(intervalGenerale.includes(interval2)).toBe(false)
+    });
+
+});
