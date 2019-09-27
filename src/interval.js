@@ -63,7 +63,37 @@ class Interval {
      * @returns {Interval[]}
      */
     union(interval) {
+        let debut = this.start;
+        let fin = this.end;
 
+        if(this.end < interval.start )
+        {
+            return [this, interval];
+        }
+        else if( interval.end < this.start)
+        {
+            return[interval,this];
+        }
+
+        if(interval.start> this.start)
+        {
+            debut= this.start;
+        }
+        else
+        {
+            debut= interval.start;
+        }
+
+        if(interval.end< this.end)
+        {
+            fin= this.end;
+        }
+        else
+        {
+            fin= interval.end;
+        }
+
+        return new Interval(debut,fin);
     };
 
     /**
