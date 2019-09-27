@@ -114,6 +114,41 @@ class Interval {
      */
     intersection(interval) {
 
+        let debut = null;
+        let fin = null;
+
+        if(this.end > interval.start && this.start < interval. start)
+        {
+            debut = interval.start;
+            for (let i= debut; i<=this.end; i++)
+            {
+                if(i > interval.end)
+                {
+                    break;
+                }
+                fin = i;
+            }
+        }
+        else if (interval.end > this.start && interval.start < this.start)
+        {
+            debut = this.start;
+            for(let j=0 ; j<= interval.end; j++)
+            {
+                if(j>this.end)
+                {
+                    break;
+                }
+                fin = j ;
+            }
+        }
+
+        if(debut == null)
+        {
+            return null;
+        }
+
+        return new Interval(debut,fin);
+
     };
 
     /**
