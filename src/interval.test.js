@@ -60,3 +60,34 @@ describe('Union', function () {
     });
 
 });
+
+describe('Intersection', function () {
+    let interval1 = new Interval(4,8);
+    let interval2, resultat;
+
+    test('Test interval intersection ', () => {
+        interval2 = new Interval(5,7);
+        resultat = new Interval(5,7);
+        expect(interval1.intersection(interval2)).toStrictEqual(resultat)
+    });
+    test('Test interval intersection', () => {
+        interval2 = new Interval(3,10);
+        resultat = new Interval(4,8);
+        expect(interval1.intersection(interval2)).toStrictEqual(resultat)
+    });
+    test('Test interval intersection', () => {
+        let interval2 = new Interval(6,9);
+        let resultat = new Interval(6,8);
+        expect(interval1.intersection(interval2)).toStrictEqual(resultat)
+    });
+
+    test('Test interval intersection', () => {
+        let interval2 = new Interval(3,5);
+        let resultat = new Interval(4,5);
+        expect(interval1.intersection(interval2)).toStrictEqual(resultat)
+    });
+    test('Test interval intersection null', () => {
+        let interval2 = new Interval(2,3);
+        expect(interval1.intersection(interval2)).toStrictEqual(null)
+    });
+});
