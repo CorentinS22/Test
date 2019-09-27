@@ -132,6 +132,7 @@ class Interval {
         else if (interval.end > this.start && interval.start < this.start)
         {
             debut = this.start;
+
             for(let j=0 ; j<= interval.end; j++)
             {
                 if(j>this.end)
