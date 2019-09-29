@@ -1,0 +1,59 @@
+ae7046999179b23ba684aa49e948f10e
+class BookRepository {
+  /**
+   * @param db
+   */
+  constructor(db) {
+    this.db = db;
+  }
+
+  save(book) {
+    this.db.get('books').push(book).write();
+  }
+  /**
+   * Nombre total de livre
+   */
+
+
+  getTotalCount() {
+    return this.db.get('books').size().value();
+  }
+  /**
+   * Somme du prix de tous les livre
+   */
+
+
+  getTotalPrice() {}
+  /**
+   * Retourne un livre
+   */
+
+
+  getBookByName(bookName) {}
+  /**
+   * Nombre de livre ajouté par mois
+   *
+   *  [
+   *      {
+   *          year: 2017,
+   *          month, 2,
+   *          count, 129,
+   *          count_cumulative: 129
+   *      },
+   *      {
+   *          year: 2017,
+   *          month, 3,
+   *          count, 200,
+   *          count_cumulative: 329
+   *      },
+   *      ....
+   *  ]
+   */
+
+
+  getCountBookAddedByMont(bookName) {}
+
+}
+
+module.exports = BookRepository;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJvb2sucmVwb3NpdG9yeS5qcyJdLCJuYW1lcyI6WyJCb29rUmVwb3NpdG9yeSIsImNvbnN0cnVjdG9yIiwiZGIiLCJzYXZlIiwiYm9vayIsImdldCIsInB1c2giLCJ3cml0ZSIsImdldFRvdGFsQ291bnQiLCJzaXplIiwidmFsdWUiLCJnZXRUb3RhbFByaWNlIiwiZ2V0Qm9va0J5TmFtZSIsImJvb2tOYW1lIiwiZ2V0Q291bnRCb29rQWRkZWRCeU1vbnQiLCJtb2R1bGUiLCJleHBvcnRzIl0sIm1hcHBpbmdzIjoiQUFBQSxNQUFNQSxjQUFOLENBQXFCO0FBRWpCOzs7QUFHQUMsRUFBQUEsV0FBVyxDQUFDQyxFQUFELEVBQUs7QUFDWixTQUFLQSxFQUFMLEdBQVVBLEVBQVY7QUFDSDs7QUFFREMsRUFBQUEsSUFBSSxDQUFFQyxJQUFGLEVBQVE7QUFDUixTQUFLRixFQUFMLENBQVFHLEdBQVIsQ0FBWSxPQUFaLEVBQXFCQyxJQUFyQixDQUEwQkYsSUFBMUIsRUFBZ0NHLEtBQWhDO0FBQ0g7QUFFRDs7Ozs7QUFHQUMsRUFBQUEsYUFBYSxHQUFHO0FBQ1osV0FBTyxLQUFLTixFQUFMLENBQVFHLEdBQVIsQ0FBWSxPQUFaLEVBQXFCSSxJQUFyQixHQUE0QkMsS0FBNUIsRUFBUDtBQUNIO0FBRUQ7Ozs7O0FBR0FDLEVBQUFBLGFBQWEsR0FBRyxDQUVmO0FBR0Q7Ozs7O0FBR0FDLEVBQUFBLGFBQWEsQ0FBQ0MsUUFBRCxFQUFXLENBRXZCO0FBRUQ7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQW1CQUMsRUFBQUEsdUJBQXVCLENBQUNELFFBQUQsRUFBVyxDQUVqQzs7QUF4RGdCOztBQTZEckJFLE1BQU0sQ0FBQ0MsT0FBUCxHQUFpQmhCLGNBQWpCIiwic291cmNlc0NvbnRlbnQiOlsiY2xhc3MgQm9va1JlcG9zaXRvcnkge1xuXG4gICAgLyoqXG4gICAgICogQHBhcmFtIGRiXG4gICAgICovXG4gICAgY29uc3RydWN0b3IoZGIpIHtcbiAgICAgICAgdGhpcy5kYiA9IGRiO1xuICAgIH1cblxuICAgIHNhdmUgKGJvb2spIHtcbiAgICAgICAgdGhpcy5kYi5nZXQoJ2Jvb2tzJykucHVzaChib29rKS53cml0ZSgpO1xuICAgIH1cblxuICAgIC8qKlxuICAgICAqIE5vbWJyZSB0b3RhbCBkZSBsaXZyZVxuICAgICAqL1xuICAgIGdldFRvdGFsQ291bnQoKSB7XG4gICAgICAgIHJldHVybiB0aGlzLmRiLmdldCgnYm9va3MnKS5zaXplKCkudmFsdWUoKTtcbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBTb21tZSBkdSBwcml4IGRlIHRvdXMgbGVzIGxpdnJlXG4gICAgICovXG4gICAgZ2V0VG90YWxQcmljZSgpIHtcblxuICAgIH1cblxuXG4gICAgLyoqXG4gICAgICogUmV0b3VybmUgdW4gbGl2cmVcbiAgICAgKi9cbiAgICBnZXRCb29rQnlOYW1lKGJvb2tOYW1lKSB7XG5cbiAgICB9XG5cbiAgICAvKipcbiAgICAgKiBOb21icmUgZGUgbGl2cmUgYWpvdXTDqSBwYXIgbW9pc1xuICAgICAqXG4gICAgICogIFtcbiAgICAgKiAgICAgIHtcbiAgICAgKiAgICAgICAgICB5ZWFyOiAyMDE3LFxuICAgICAqICAgICAgICAgIG1vbnRoLCAyLFxuICAgICAqICAgICAgICAgIGNvdW50LCAxMjksXG4gICAgICogICAgICAgICAgY291bnRfY3VtdWxhdGl2ZTogMTI5XG4gICAgICogICAgICB9LFxuICAgICAqICAgICAge1xuICAgICAqICAgICAgICAgIHllYXI6IDIwMTcsXG4gICAgICogICAgICAgICAgbW9udGgsIDMsXG4gICAgICogICAgICAgICAgY291bnQsIDIwMCxcbiAgICAgKiAgICAgICAgICBjb3VudF9jdW11bGF0aXZlOiAzMjlcbiAgICAgKiAgICAgIH0sXG4gICAgICogICAgICAuLi4uXG4gICAgICogIF1cbiAgICAgKi9cbiAgICBnZXRDb3VudEJvb2tBZGRlZEJ5TW9udChib29rTmFtZSkge1xuXG4gICAgfVxuXG59XG5cblxubW9kdWxlLmV4cG9ydHMgPSBCb29rUmVwb3NpdG9yeTsiXX0=
