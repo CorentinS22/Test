@@ -58,3 +58,18 @@ test('Test fizzBuzz 1 à 15', () => {
 test('Test chiffrement', () => {
     expect(Util.cipher("Test Unitaire")).toBe("Uftu Vojubjsf");
 });
+
+describe('pairs', function () {
+
+    test.each([
+        [[3,3], 1],
+        [[3,3,5,],1],
+        [[3,3,5,5,5],4],
+    ])(
+        'pairs %d equals to %i',
+        (n, expected) => {
+            expect(Util.pairs(n)).toStrictEqual(expected);
+        }
+    );
+
+});
