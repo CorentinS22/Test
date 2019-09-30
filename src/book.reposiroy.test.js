@@ -23,10 +23,10 @@ describe('Book repository getTotalCount', function () {
         const dbMock = {
             get : jest.fn().mockReturnThis(),
             size : jest.fn().mockReturnThis(),
-            value : jest.fn().mockReturnValue(2)
+            value : jest.fn().mockReturnValue(3)
         };
         const repository = new BookRepository(dbMock);
 
-        expect(repository.getTotalCount()).toBe(2);
+        expect(repository.getTotalCount()).toBe(3);
     });
 });
