@@ -17,16 +17,18 @@ describe('Overlaps', function () {
 });
 
 describe('Includes', function () {
-    let intervalGenerale = new Interval(0,10);
+
+    let interval1 = new Interval(2,6);
+    let interval2;
 
     test('Test interval includes true', () => {
-        let interval2 = new Interval(4,8);
-        expect(intervalGenerale.includes(interval2)).toBe(true)
+        interval2 = new Interval(3,5);
+        expect(interval1.includes(interval2)).toBe(true)
     });
 
     test('Test interval includes false', () => {
-        let interval2 = new Interval(5,16);
-        expect(intervalGenerale.includes(interval2)).toBe(false)
+        interval2 = new Interval(5,16);
+        expect(interval1.includes(interval2)).toBe(false)
     });
 
 });
