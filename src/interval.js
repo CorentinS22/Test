@@ -1,7 +1,7 @@
 class Interval {
     constructor(start, end) {
         this.start = start;
-        this.end = end
+        this.end = end;
     }
 
     toString() {
@@ -170,7 +170,52 @@ class Interval {
      */
     exclusion(interval) {
 
+    if(this.start==interval.start && this.end==interval.end)
+    {
+        return  null;
+    }
+
+    //Si les deux intervals se croisent
+    if (this.overlaps(interval))
+    {
+        //On récupère l'intersection
+        let intervalIntersection = new Interval(this.intersection(interval).start,this.intersection(interval).end);
+        //console.log(intervalIntersection);
+
+        //On créé un tableau regroupant les différents points
+        let array = [this.start,this.end,interval.start,interval.end ,intervalIntersection.start,intervalIntersection.end];
+
+        //On enlève les doublons et on trie
+        let finalArray = [...new Set(array)].sort(function(a, b){return a-b});
+
+        //console.log(finalArray);
+
+        let firstArray = new Interval(finalArray[0],finalArray[1]);
+        let secondArray = new Interval(finalArray[2],finalArray[3]);
+
+        return [firstArray,secondArray];
+
+
+    }
+    else
+    {
+        if (this.end>interval.end)
+        {
+            return [interval, this];
+        }
+        else
+        {
+            return [this, interval];
+        }
+    }
+
     };
+
 }
+
+let interval1 = new Interval(6,10);
+let interval2 = new Interval(10,12);
+
+console.log(interval1.exclusion(interval2));
 
 module.exports = Interval;
