@@ -136,7 +136,25 @@ Util.cipher = function (phrase) {
  */
 Util.pairs = function(array) {
 
+    let resultat=0;
 
+    for(let i=0; i<array.length;i++)
+    {
+
+        let number=array[i];
+
+        for(let j=i+1; j<array.length;j++)
+        {
+            if(number==array[j])
+            {
+                resultat++;
+            }
+
+        }
+
+    }
+
+    return resultat;
 
 };
 
