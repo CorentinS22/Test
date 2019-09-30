@@ -6,6 +6,7 @@ describe('Overlaps', function () {
         let interval1 = new Interval(0,24);
         let interval2 = new Interval(6,34);
         expect(interval1.overlaps(interval2)).toBe(true);
+        //test
     });
 
     test('Test interval false', () => {
