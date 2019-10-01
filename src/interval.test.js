@@ -31,15 +31,15 @@ describe('Overlaps', function () {
 });
 
 describe('Includes', function () {
-    let interval1 = new Interval(0,10);
+    let interval1 = new Interval(3,6);
 
     test('Test interval includes true', () => {
-        let interval2 = new Interval(4,8);
+        let interval2 = new Interval(4,5);
         expect(interval1.includes(interval2)).toBe(true)
     });
 
     test('Test interval includes false', () => {
-        let interval2 = new Interval(5,16);
+        let interval2 = new Interval(2,8);
         expect(interval1.includes(interval2)).toBe(false)
     });
 
