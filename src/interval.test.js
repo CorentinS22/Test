@@ -27,7 +27,7 @@ describe('Includes', function () {
     });
 
     test('Test interval includes false', () => {
-        interval2 = new Interval(5,16);
+        interval2 = new Interval(5,14);
         expect(interval1.includes(interval2)).toBe(false)
     });
 
