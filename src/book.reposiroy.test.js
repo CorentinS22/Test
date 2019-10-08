@@ -37,10 +37,11 @@ describe('Book repository getTotalPrice', function () {
 
         const dbMock = {
             get : jest.fn().mockReturnThis(),
+            size : jest.fn().mockReturnThis(),
             value : jest.fn().mockReturnValue(10)
         };
         const repository = new BookRepository(dbMock);
 
-        expect(repository.getTotalPrice()).toBe(10);
+        expect(repository.getTotalPrice()).toBe(100);
     });
 });
