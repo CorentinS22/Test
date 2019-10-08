@@ -23,9 +23,13 @@ class BookRepository {
      */
     getTotalPrice() {
         let somme = 0;
-        this.db.get('books').map('price').value().forEach((price) => {
-            somme += price;
-        });
+        let i = 0;
+        
+        for (i; i< this.getTotalCount(); i++)
+        {
+            somme += this.db.get('books['+i+'].price').value();
+        }
+
         return somme;
     }
 
