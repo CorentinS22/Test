@@ -11,6 +11,18 @@
       "name": "Les 3 mousquetaires",
       "price": 3.1,
       "added_at": "2000-02-12"
+    },
+    {
+      "id": 3,
+      "name": "Les 3 mousquetaires",
+      "price": 5,
+      "added_at": "2000-02-10"
+    },
+    {
+      "id": 4,
+      "name": "Les 3 mousquetaires",
+      "price": 5.9,
+      "added_at": "2000-04-12"
     }
   ]
 }

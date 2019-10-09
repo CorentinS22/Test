@@ -67,3 +67,69 @@ describe('Book repository getBookByName', () => {
         expect(repository.getBookByName('Harry Potter')).toBe(HPotter);
     });
 });
+
+describe('Book repository getCountBookAddedByMonth', () => {
+    test('Test getCountBookAddedByMonth \n Should return 3 books for 2000-02-04 and 2 books for 2000-02-05 \n', () => {
+
+        const books = [];
+        for (let i=1 ; i<4 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2000-02-04'});
+        }
+        for (let i=4 ; i<6 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2000-02-05'});
+        }
+
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            filter: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue(books)
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(repository.getCountBookAddedByMonth('Harry Potter')).toEqual(
+            [
+                { year: 2000, month: 2, count: 5, count_cumulative: 5 }
+            ]);
+    });
+
+    test('Test getCountBookAddedByMonth \n Should return 3 books for 2000-02-04 and 2 books for 2000-02-05 and 1 book for 2000-03-06\n', () => {
+
+        const books = [];
+        for (let i=1 ; i<4 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2000-02-04'});
+        }
+        for (let i=4 ; i<6 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2000-02-05'});
+        }
+        for (let i=6 ; i<7 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2000-03-06'});
+        }
+
+
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            filter: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue(books)
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(repository.getCountBookAddedByMonth('Harry Potter')).toEqual(
+            [
+                { year: 2000, month: 2, count: 5, count_cumulative: 5 },
+                { year: 2000, month: 3, count: 1, count_cumulative: 6 }
+            ]);
+    });
+
+    test('Test getCountBookAddedByMonth \n Should return an error \n', () => {
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            filter: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue([])
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(() => {
+            repository.getCountBookAddedByMonth('Potter Harry');
+        }).toThrow();
+    });
+});
