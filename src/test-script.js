@@ -14,3 +14,4 @@ const repository = new BookRepository(db);
 console.log(repository.getTotalCount());
 console.log(repository.getTotalPrice());
 console.log(repository.getBookByName("Harry Potter"));
+console.log(repository.getCountBookAddedByMonth("Les 3 mousquetaires"));
